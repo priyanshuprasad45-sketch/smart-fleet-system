@@ -2,10 +2,11 @@ const mongoose = require("mongoose");
 
 const connectDB = async () => {
   try {
-    await mongoose.connect("mongodb+srv://fleetuser:Fleet%4012345@cluster0.saytuh9.mongodb.net/fleetDB?appName=Cluster0");
+    await mongoose.connect(process.env.MONGO_URI);
     console.log("MongoDB Connected");
   } catch (error) {
     console.log("DB Connection Error:", error);
+    process.exit(1);
   }
 };
 
