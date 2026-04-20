@@ -21,6 +21,15 @@ const io = new Server(server, {
 app.use(cors());
 app.use(express.json());
 
+// routes
+const authRoutes = require("./routes/authRoutes");
+const driverRoutes = require("./routes/driverRoutes");
+const shipmentRoutes = require("./routes/shipmentRoutes");
+
+app.use("/api/auth", authRoutes);
+app.use("/api/drivers", driverRoutes);
+app.use("/api/shipments", shipmentRoutes);
+
 // connect database
 connectDB();
 
